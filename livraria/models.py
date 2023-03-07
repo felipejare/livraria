@@ -8,8 +8,20 @@ class Categoria(models.Model):
     
 class Editora(models.Model):
     nome = models.CharField(max_length=100)
-    site = models.URLField(null=True, blank=True)
+    site = models.URLField(null=True, blank=True) #esse campo nao e obrigatorio lol
 
     def __str__(self):
         return self.nome
+    
+class Autor(models.Model):
+    nome = models.CharField(max_length=255)
+    email = models.EmailField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.nome} - {self.email}"
+    
+    class Meta:
+        verbose_name_plural = "Autores"
+
+        
     
