@@ -10,6 +10,8 @@ from livraria.serializers import (
     EditoraSerializer,
     AutorSerializer,
     LivroSerializer,
+    LivroDetailSerializer,
+    
 )
 
 
@@ -31,3 +33,9 @@ class AutorViewSet(ModelViewSet):
 class LivroViewSet(ModelViewSet):
     queryset = Livro.objects.all()
     serializer_class = LivroSerializer
+
+
+    def get_serializer_class(self):
+        if self.action in ["list", "retrieve"]:
+            return LivroDetailSerializer
+        return LivroSerializer
