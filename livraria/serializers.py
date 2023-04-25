@@ -32,3 +32,9 @@ class LivroDetailSerializer (ModelSerializer):
         model = Livro
         fields = "__all__"
         depth: 1
+
+
+class LivroListSerializer (ModelSerializer):
+    class Meta:
+        model = Livro
+        fields = ["id", "titulo", "preco"]
